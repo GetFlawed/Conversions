@@ -43,7 +43,7 @@ def weight(input_type):
 
         if x:
             if input_type == "grams" or input_type == "g":
-                output_value = input_value * 1000
+                output_value = input_value / 1000
                 print(f"\n {str(input_value)}g = {str(round(output_value, 2))}Kg.")
             elif input_type == "pounds" or input_type == "lbs":
                 output_value = input_value / 2.205
@@ -52,7 +52,7 @@ def weight(input_type):
                 print("Error, can not convert to the same measurement type.")
         elif y:
             if input_type == "kilograms" or input_type == "kg":
-                output_value = input_value / 1000
+                output_value = input_value * 1000
                 print(f"\n {str(input_value)}Kg = {str(round(output_value, 2))}g.")
             elif input_type == "pounds" or input_type == "lbs":
                 output_value = input_value * 454
@@ -90,28 +90,28 @@ def volume(input_type):
         if x:
             if input_type == "millilitres" or input_type == "ml":
                 output_value = input_value * 1000
-                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}ml.")
+                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}L.")
             elif input_type == "fluid ounces" or input_type == "fl oz":
                 output_value = input_value * 35.195
-                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}fl oz.")
+                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}L.")
             else:
                 print("Error, can not convert to the same measurement type.")
         elif y:
             if input_type == "litres" or input_type == "l":
                 output_value = input_value / 1000
-                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}L.")
+                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}ml.")
             elif input_type == "fluid ounces" or input_type == "fl oz":
                 output_value = input_value / 28.413
-                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}fl oz.")
+                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}ml.")
             else:
                 print("Error, can not convert to the same measurement type.")
         elif z:
             if input_type == "litres" or input_type == "l":
                 output_value = input_value / 35.195
-                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}L.")
+                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}fl oz.")
             elif input_type == "millilitres" or input_type == "ml":
                 output_value = input_value * 28.413
-                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}ml.")
+                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}fl oz.")
             else:
                 print("Error, can not convert to the same measurement type.")
         else:
