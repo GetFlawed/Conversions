@@ -1,4 +1,5 @@
 import re
+global input_value
 
 
 def menu():
@@ -8,8 +9,12 @@ def menu():
     Weight - (Kilograms (Kg), Grams (g), Pounds (lbs))
     Volume - (Litres (l), Millilitres (ml), Fluid Ounces (fl oz))
     Temperature - (Celsius (C), Fahrenheit (F), Kelvin (K))
+    
+    Enter Quit to exit the program
     """)
     input_type = input("\nPlease select which measurement you wish to enter: ")
+    if input_type.lower() == "quit":
+        exit()
     x = re.search("^kilograms$|^kg$|^grams$|^g$|^pounds$|^lbs$", input_type.lower())
     y = re.search("^litres$|^l$|^mililitres$|^ml$|^fluid ounces$|^fl oz$", input_type.lower())
     z = re.search("^celsius$|^c$|^fahrenheit$|^f$|^kelvin$|^k$", input_type.lower())
@@ -27,12 +32,39 @@ def menu():
 
 
 def weight(input_type):
+    global input_value
+    float_value = False
     if input_type == "kg" or input_type == "kilograms":
-        input_value = float(input("\nPlease enter how many Kilograms you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Kilograms you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
+
     elif input_type == "g" or input_type == "grams":
-        input_value = float(input("\nPlease enter how many Grams you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Grams you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
     else:
-        input_value = float(input("\nPlease enter how many Pounds you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Pounds you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
 
     output_value = 0
     while output_value == 0:
@@ -73,12 +105,38 @@ def weight(input_type):
 
 
 def volume(input_type):
+    global input_value
+    float_value = False
     if input_type == "l" or input_type == "litres":
-        input_value = float(input("\nPlease enter how many Litres you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Litres you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
     elif input_type == "ml" or input_type == "millilitres":
-        input_value = float(input("\nPlease enter how many Millilitres you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Millilitres you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
     else:
-        input_value = float(input("\nPlease enter how many Fluid Ounces you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Fluid Ounces you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
 
     output_value = 0
     while output_value == 0:
@@ -119,12 +177,38 @@ def volume(input_type):
 
 
 def temperature(input_type):
+    global input_value
+    float_value = False
     if input_type == "c" or input_type == "celsius":
-        input_value = float(input("\nPlease enter how many Celsius you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Celsius you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
     elif input_type == "f" or input_type == "fahrenheit":
-        input_value = float(input("\nPlease enter how many Fahrenheit you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Fahrenheit you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
     else:
-        input_value = float(input("\nPlease enter how many Kelvin you wish to convert: "))
+        while not float_value:
+            try:
+                input_value = float(input("\nPlease enter how many Kelvin you wish to convert: "))
+                if input_value > 0:
+                    float_value = True
+                else:
+                    print("That's not a number greater than 0, try again please")
+            except ValueError:
+                print("That's not a number, try again please")
 
     output_value = 0
     while output_value == 0:
@@ -165,5 +249,5 @@ def temperature(input_type):
 
 
 menu()
-input("\nPress Enter to continue...")
+input("\nPress any key to go back to the menu...")
 menu()
