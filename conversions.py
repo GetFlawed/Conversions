@@ -13,19 +13,19 @@ def menu():
     
     Enter Quit to exit the program
     """)
-    input_type = input("\nPlease select which measurement you wish to enter: ")
-    if input_type.lower() == "quit":
+    input_type = input("\nPlease select which measurement you wish to enter: ").lower()
+    if input_type == "quit":
         exit()
-    x = re.search("^kilograms$|^kg$|^grams$|^g$|^pounds$|^lbs$", input_type.lower())
-    y = re.search("^litres$|^l$|^mililitres$|^ml$|^fluid ounces$|^fl oz$", input_type.lower())
-    z = re.search("^celsius$|^c$|^fahrenheit$|^f$|^kelvin$|^k$", input_type.lower())
+    x = re.search("^kilograms$|^kg$|^grams$|^g$|^pounds$|^lbs$", input_type)
+    y = re.search("^litres$|^l$|^mililitres$|^ml$|^fluid ounces$|^fl oz$", input_type)
+    z = re.search("^celsius$|^c$|^fahrenheit$|^f$|^kelvin$|^k$", input_type)
 
     if x:
-        weight(input_type.lower())
+        weight(input_type)
     elif y:
-        volume(input_type.lower())
+        volume(input_type)
     elif z:
-        temperature(input_type.lower())
+        temperature(input_type)
     else:
         print("Incorrect spelling or measurement type.")
         print("Please make sure to enter a measurement that is on the provided list")
