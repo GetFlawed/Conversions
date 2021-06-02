@@ -11,7 +11,9 @@ def menu():
     Weight - Volume - Temperature
     
     Enter Quit to exit the program""")
+
     category_type = input("Please select the measurement category: ").lower()
+
     if category_type == "quit":
         exit()
     elif category_type == "weight":
@@ -28,6 +30,7 @@ Please make sure to enter a category that is on the provided list.""")
 
 def weight():
     global input_value, input_type
+
     weights_value = False
     while not weights_value:
         try:
@@ -38,13 +41,15 @@ def weight():
                 weights_value = True
         except ValueError:
             print("""\n\nIncorrect spelling or measurement type.
-            Please make sure to enter a measurement that is on the provided list.\n\n""")
+Please make sure to enter a measurement that is on the provided list.\n\n""")
+
     if input_type == "kg":
         input_type = "kilograms"
     elif input_type == "g":
         input_type = "grams"
     elif input_type == "lbs":
         input_type = "pounds"
+
     float_value = False
     while not float_value:
         try:
@@ -72,6 +77,7 @@ def weight():
 
 def volume():
     global input_value, input_type
+
     weights_value = False
     while not weights_value:
         try:
@@ -83,12 +89,14 @@ def volume():
         except ValueError:
             print("""\n\nIncorrect spelling or measurement type.
 Please make sure to enter a measurement that is on the provided list.\n\n""")
+
     if input_type == "l":
         input_type = "litres"
     elif input_type == "ml":
         input_type = "millilitres"
     elif input_type == "fl oz":
         input_type = "fluid ounces"
+
     float_value = False
     while not float_value:
         try:
@@ -116,6 +124,7 @@ Please make sure to enter a measurement that is on the provided list.\n\n""")
 
 def temperature():
     global input_value, input_type
+
     weights_value = False
     while not weights_value:
         try:
@@ -127,12 +136,14 @@ def temperature():
         except ValueError:
             print("""\n\nIncorrect spelling or measurement type.
 Please make sure to enter a measurement that is on the provided list.\n\n""")
+
     if input_type == "c":
         input_type = "celsius"
     elif input_type == "f":
         input_type = "fahrenheit"
     elif input_type == "k":
         input_type = "kelvin"
+
     float_value = False
     while not float_value:
         try:
@@ -163,5 +174,6 @@ while loop:
     menu()
     end_input = input("""\nEnter quit to exit the program.
 or press any key to go back to the menu...""").lower()
+
     if end_input == "quit":
         exit()
