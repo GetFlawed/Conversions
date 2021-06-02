@@ -1,11 +1,12 @@
 import re
+from classes import Weights, Volumes, Temps
 global input_value
 
 
 def menu():
     print("""
     Menu
-    
+       
     Weight - (Kilograms (Kg), Grams (g), Pounds (lbs))
     Volume - (Litres (l), Millilitres (ml), Fluid Ounces (fl oz))
     Temperature - (Celsius (C), Fahrenheit (F), Kelvin (K))
@@ -39,6 +40,11 @@ def weight(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Kilograms you wish to convert: "))
                 if input_value > 0:
+                    output = Weights(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}Kg is equal to:
+                    {str(round(output.kg_pounds, 2))}lbs
+                    {str(round(output.kg_grams, 2))}g""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -50,6 +56,11 @@ def weight(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Grams you wish to convert: "))
                 if input_value > 0:
+                    output = Weights(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}g is equal to:
+                    {str(round(output.g_pounds, 2))}lbs
+                    {str(round(output.g_kilograms, 2))}kg""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -60,48 +71,16 @@ def weight(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Pounds you wish to convert: "))
                 if input_value > 0:
+                    output = Weights(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}lbs is equal to:
+                    {str(round(output.lbs_kilograms, 2))}kg
+                    {str(round(output.lbs_grams, 2))}g""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
             except ValueError:
                 print("That's not a number, try again please")
-
-    output_value = 0
-    while output_value == 0:
-        output_type = input("\nPlease enter what measurement type to convert to: ")
-        x = re.search("^kilograms$|^kg$", output_type.lower())
-        y = re.search("^grams$|^g$", output_type.lower())
-        z = re.search("^pounds$|^lbs$", output_type.lower())
-
-        if x:
-            if input_type == "grams" or input_type == "g":
-                output_value = input_value / 1000
-                print(f"\n {str(input_value)}g = {str(round(output_value, 2))}Kg.")
-            elif input_type == "pounds" or input_type == "lbs":
-                output_value = input_value / 2.205
-                print(f"\n {str(input_value)}lbs = {str(round(output_value, 2))}Kg.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif y:
-            if input_type == "kilograms" or input_type == "kg":
-                output_value = input_value * 1000
-                print(f"\n {str(input_value)}Kg = {str(round(output_value, 2))}g.")
-            elif input_type == "pounds" or input_type == "lbs":
-                output_value = input_value * 454
-                print(f"\n {str(input_value)}lbs = {str(round(output_value, 2))}g.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif z:
-            if input_type == "grams" or input_type == "g":
-                output_value = input_value / 454
-                print(f"\n {str(input_value)}g = {str(round(output_value, 2))}lbs.")
-            elif input_type == "kilograms" or input_type == "kg":
-                output_value = input_value * 2.205
-                print(f"\n {str(input_value)}Kg = {str(round(output_value, 2))}lbs.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        else:
-            print("Incorrect spelling or measurement type. Please try again.")
 
 
 def volume(input_type):
@@ -112,6 +91,11 @@ def volume(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Litres you wish to convert: "))
                 if input_value > 0:
+                    output = Volumes(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}L is equal to:
+                    {str(round(output.l_millilitres, 2))}ml
+                    {str(round(output.l_fluid_ounces, 2))}fl oz""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -122,6 +106,11 @@ def volume(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Millilitres you wish to convert: "))
                 if input_value > 0:
+                    output = Volumes(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}ml is equal to:
+                    {str(round(output.ml_litres, 2))}L
+                    {str(round(output.ml_fluid_ounces, 2))}fl oz""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -132,48 +121,16 @@ def volume(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Fluid Ounces you wish to convert: "))
                 if input_value > 0:
+                    output = Volumes(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}fl oz is equal to:
+                    {str(round(output.fl_oz_millilitres, 2))}ml
+                    {str(round(output.fl_oz_litres, 2))}l""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
             except ValueError:
                 print("That's not a number, try again please")
-
-    output_value = 0
-    while output_value == 0:
-        output_type = input("\nPlease enter what measurement type to convert to: ")
-        x = re.search("^litres$|^l$", output_type.lower())
-        y = re.search("^millilitres$|^ml$", output_type.lower())
-        z = re.search("^fluid ounces$|^fl oz$", output_type.lower())
-
-        if x:
-            if input_type == "millilitres" or input_type == "ml":
-                output_value = input_value * 1000
-                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}L.")
-            elif input_type == "fluid ounces" or input_type == "fl oz":
-                output_value = input_value * 35.195
-                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}L.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif y:
-            if input_type == "litres" or input_type == "l":
-                output_value = input_value / 1000
-                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}ml.")
-            elif input_type == "fluid ounces" or input_type == "fl oz":
-                output_value = input_value / 28.413
-                print(f"\n {str(input_value)}fl oz = {str(round(output_value, 2))}ml.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif z:
-            if input_type == "litres" or input_type == "l":
-                output_value = input_value / 35.195
-                print(f"\n {str(input_value)}L = {str(round(output_value, 2))}fl oz.")
-            elif input_type == "millilitres" or input_type == "ml":
-                output_value = input_value * 28.413
-                print(f"\n {str(input_value)}ml = {str(round(output_value, 2))}fl oz.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        else:
-            print("Incorrect spelling or measurement type. Please try again.")
 
 
 def temperature(input_type):
@@ -184,6 +141,11 @@ def temperature(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Celsius you wish to convert: "))
                 if input_value > 0:
+                    output = Temps(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}C is equal to:
+                    {str(round(output.c_fahrenheit, 2))}F
+                    {str(round(output.c_kelvin, 2))}K""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -194,6 +156,11 @@ def temperature(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Fahrenheit you wish to convert: "))
                 if input_value > 0:
+                    output = Temps(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}F is equal to:
+                    {str(round(output.f_celsius, 2))}C
+                    {str(round(output.f_kelvin, 2))}K""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
@@ -204,50 +171,19 @@ def temperature(input_type):
             try:
                 input_value = float(input("\nPlease enter how many Kelvin you wish to convert: "))
                 if input_value > 0:
+                    output = Temps(input_value, input_value, input_value, input_value, input_value, input_value)
+                    print(f"""
+                    {input_value}K is equal to:
+                    {str(round(output.k_celsius, 2))}C
+                    {str(round(output.k_fahrenheit, 2))}F""")
                     float_value = True
                 else:
                     print("That's not a number greater than 0, try again please")
             except ValueError:
                 print("That's not a number, try again please")
 
-    output_value = 0
-    while output_value == 0:
-        output_type = input("\nPlease enter what measurement type to convert to: ")
-        x = re.search("^celsius$|^c$", output_type.lower())
-        y = re.search("^fahrenheit$|^f$", output_type.lower())
-        z = re.search("^kelvin$|^k$", output_type.lower())
 
-        if x:
-            if input_type == "fahrenheit" or input_type == "f":
-                output_value = ((input_value - 32) * (5 / 9))
-                print(f"\n {str(input_value)}F = {str(round(output_value, 2))}C.")
-            elif input_type == "kelvin" or input_type == "k":
-                output_value = input_value - 273.15
-                print(f"\n {str(input_value)}K = {str(round(output_value, 2))}C.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif y:
-            if input_type == "celsius" or input_type == "c":
-                output_value = ((input_value * (9 / 5)) + 32)
-                print(f"\n {str(input_value)}C = {str(round(output_value, 2))}F.")
-            elif input_type == "kelvin" or input_type == "k":
-                output_value = ((input_value - 273.15) * (9 / 5)) + 32
-                print(f"\n {str(input_value)}K = {str(round(output_value, 2))}F.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        elif z:
-            if input_type == "celsius" or input_type == "c":
-                output_value = input_value + 273.15
-                print(f"\n {str(input_value)}C = {str(round(output_value, 2))}K.")
-            elif input_type == "fahrenheit" or input_type == "f":
-                output_value = ((input_value - 32) * (5 / 9)) + 273.15
-                print(f"\n {str(input_value)}F = {str(round(output_value, 2))}K.")
-            else:
-                print("Error, can not convert to the same measurement type.")
-        else:
-            print("Incorrect spelling or measurement type. Please try again.")
-
-
-menu()
-input("\nPress any key to go back to the menu...")
-menu()
+loop = True
+while loop:
+    menu()
+    input("\nPress any key to go back to the menu...")
